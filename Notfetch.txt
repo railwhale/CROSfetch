@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+# Notfetch: My clone of neofetch, to learn bash more
+
+
+# Example neofetch:
+
+# reubenferabend@penguin 
+# ---------------------- 
+# OS: Debian GNU/Linux 11 (bullseye) on Chrome OS x86_64 
+# Host: crosvm 
+# Kernel: 5.10.131-19105-g3f83f2a77c68 
+# Uptime: 2 mins 
+# Packages: 643 (dpkg), 5 (flatpak) 
+# Shell: bash 5.1.4 
+# DE: Generic 
+# Theme: CrosAdapta [GTK2/3] 
+# Icons: Adwaita [GTK2/3] 
+# Terminal: ld-linux-x86-64 
+# CPU: Intel Celeron N4100 (4) @ 1.094GHz 
+# Memory: 4MiB / 2775MiB 
+
+# Structure:
+# 
+#  basic prompt
+# --------------
+# Username
+# OS
+# Host
+# Kernel 
+# Uptime
+# Packages
+# ---------
+# Terminal
+# Shell
+# ---------
+# DE
+# WM
+# Theme
+# Icon pack
+# ---------
+# CPU
+# GPU
+# RAM
+# SSD
+
+user_ps1="\u@\h"
+username="\u"
+os=
+hostname="${uname -n}"
+kernel=
+uptime=
+packages=
+terminal=
+shell=
+de=
+wm=
+theme=
+wm_theme=
+icons=
+cpu=
+gpu=
+mem=
+drive=               # Boot Drive
