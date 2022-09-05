@@ -4,7 +4,7 @@
 
 # Example neofetch:
 
-# reubenferabend@penguin 
+# railwhale@gihub 
 # ---------------------- 
 # OS: Debian GNU/Linux 11 (bullseye) on Chrome OS x86_64 
 # Host: crosvm 
@@ -28,6 +28,8 @@
 # Host
 # Kernel 
 # Uptime
+# --------
+# Package Managers
 # Packages
 # ---------
 # Terminal
@@ -36,14 +38,16 @@
 # DE
 # WM
 # Theme
+# WM Theme
 # Icon pack
 # ---------
 # CPU
 # GPU
 # RAM
-# SSD
+# Boot Drive
+# --------
 
-user_ps1="\u@\h"
+user_ps1="\"
 username="\u"
 os=
 hostname="${uname -n}"
