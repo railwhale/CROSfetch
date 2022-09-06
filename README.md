@@ -1,5 +1,5 @@
-# Notfetch
-My clone of neofetch (github/dylanaraps/neofetch).  
+# CROSfetch
+My clone of neofetch, made for chrome os (github/dylanaraps/neofetch).  
 Mostly to learn more bash.  
 
 ## Info Given:
@@ -8,8 +8,6 @@ Mostly to learn more bash.
  - Your prompt ($PS1 variable)
  - Your PATH ($PATH)
  - Hostname
-
- 
  - OS
  - Kernel
  - Uptime
@@ -25,7 +23,8 @@ Mostly to learn more bash.
  - CPU
  - GPU
  - Memory
- - Drive (Boot drive)
+ - Drive (Boot drive)  
+
 
 ## Example Notfetch:
 railwhale@github
@@ -33,3 +32,4 @@ railwhale@github
 Username: railwhale
 Host: Github
 Prompt: [8:02] railwhale@Github: ~/ \n$
+
