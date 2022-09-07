@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# CROSfetch: My clone of neofetch, specialised for ChromeOS
+
+# Structure:
+# 
+#  basic prompt
+# --------------
+# Username
+# Google account usernames
+# ----------
+# OS
+# Host
+# Kernel 
+# Uptime
+# --------
+# Package Managers
+# Packages
+# ---------
+# Terminal
+# Shell
+# ---------
+# DE
+# WM
+# Theme
+# WM Theme
+# Icon pack
+# ---------
+# CPU
+# GPU
+# RAM
+# Boot Drive
+# --------
+
+# Make a basic prompt as a title
+get_title() {
+  title_ps1="\033[01;32m$USER@$HOSTNAME \033[00m"
+  
+  }
+
+# 
+get_username() {
+  username="$USER"
+  
+  }
+os=
+hostname="$(uname -n)"
+kernel="$(uname -rs)"
+
+# Get the system uptime by removing the 'up ' from uptime -p
+get_uptime() {
+  uptime="$(uptime -p | sed 's/^.//;s/^.//;s/^.//')"
+  
+  }
+
+
+packages=
+terminal=
+shell=
+de=
+wm=
+theme=
+wm_theme=
+icons=
+cpu=
+gpu=
+mem=
+drive=               # Boot Drive
