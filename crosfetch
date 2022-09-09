@@ -34,26 +34,26 @@
 get_title() {
   title_ps1="\033[01;32m$USER@$HOSTNAME \033[00m"
   
-  }
+}
 
-# Get username of the current user (It's should always be chronos)
+# Get username of the current user (It should always be chronos)
 get_username() {
   username="$USER"
- }
+}
 
 # Find the usernames of all logged in google accounts
 get_google-accounts() {
    g_accs=""
-     for img in /home/chronos/*.jpg; do     # For every jpeg file in /home/chonos:
-       while $char != '@' :                 # Until the '@' symbol,
-       do 
-       char="$(echo ${img[*]: -1})"         # Set $char to the last character in the file name
-       img=="$(echo $img | sed 's/.$//')"   # Remove the last character in $img
-     done
-     img="$(echo $img | sed 's/\/home\/chronos\///')"
-     img="$(string//[.]/' ')"               # Replace periods with spaces |  '.' -> ' '
-     g_accs="$g_accs\n$img"                 # Add the name to 'g_accs'
-     export $g_accs
+   for img in /home/chronos/*.jpg; do     # For every jpeg file in /home/chonos:
+     while $char != '@' :                 # Until the '@' symbol,
+     do 
+     char="$(echo ${img[*]: -1})"         # Set $char to the last character in the file name
+     img=="$(echo $img | sed 's/.$//')"   # Remove the last character in $img
+   done
+   img="$(echo $img | sed 's/\/home\/chronos\///')"
+   img="$(string//[.]/' ')"               # Replace periods with spaces |  '.' -> ' '
+   g_accs="$g_accs\n$img"                 # Add the name to 'g_accs'
+   export $g_accs
    unset img                                # img is not needed anymore
 }
 
@@ -64,9 +64,20 @@ get_hostname() {
 
 # Get your OS, wheather it be ChromeOS, ChromeOS Flex, ChromiumOS, or some other fork
 get_os() {
-  OS=
+  OS="ChromeOS"
   
-  }
+}
+
+# Get the cpu architecture
+get_arch() {
+  
+
+}
+# Get the host device model
+get_device() {
+  
+
+}
 
 # Get the kernel name and release
 get_kernel() {
@@ -77,18 +88,37 @@ get_kernel() {
 get_uptime() {
   uptime="$(uptime -p | sed 's/^.//;s/^.//;s/^.//')"
   
-  }
+}
 
 package managers
 packages
 
-terminal=
-shell= if -v $BASH_VERSION
+# 
+get_terminal() {
+   if [  ]; then               # Is it chrome, or chromium?
+      terminal="Google Chrome"
+   else
+      terminal="Chromium"
+   fi
+}
+
+# Get the current shell
+get_shell() {
+  if [ -n $BASH_VERSION ]; then
+     shell="Bash $BASH_VERSION"
+  else
+     shell="sh"
+  fi
+
+}
+
 de=
 wm=
 theme=
 wm_theme=
 icons=
+
+
 cpu=
 gpu=
 mem=
