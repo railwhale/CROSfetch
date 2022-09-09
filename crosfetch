@@ -44,17 +44,17 @@ get_username() {
 # Find the usernames of all logged in google accounts
 get_google-accounts() {
    g_accs=""
-   for img in /home/chronos/*.jpg; do     # For every jpeg file in /home/chonos:
-     while $char != '@' :                 # Until the '@' symbol,
+   for img in /home/chronos/*.jpg; do                  # For every jpeg file in /home/chonos:
+   img="$(echo $img | sed 's/\/home\/chronos\///')"    # Remove the path from the name
+     while $char != '@' :                              # Until the '@' symbol,
      do 
-     char="$(echo ${img[*]: -1})"         # Set $char to the last character in the file name
-     img=="$(echo $img | sed 's/.$//')"   # Remove the last character in $img
+     char="$(echo ${img[*]: -1})"                      # Set $char to the last character in the file name
+     img=="$(echo $img | sed 's/.$//')"                # Remove the last character in $img
+   img="$(echo $img | string//[.]/' ')"                            # Replace periods with spaces |  '.' -> ' '
+   g_accs="$g_accs\n$img"                              # Add the name to 'g_accs'
    done
-   img="$(echo $img | sed 's/\/home\/chronos\///')"
-   img="$(string//[.]/' ')"               # Replace periods with spaces |  '.' -> ' '
-   g_accs="$g_accs\n$img"                 # Add the name to 'g_accs'
    export $g_accs
-   unset img                                # img is not needed anymore
+   unset img                                           # $img is not needed anymore
 }
 
 # Get the hostname (this should always localhost, )
