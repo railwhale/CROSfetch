@@ -8,6 +8,7 @@
 # Google account usernames
 # ----------
 # Hostname
+# Host
 # OS
 # Kernel 
 # Uptime
@@ -17,6 +18,7 @@
 # ---------
 # Terminal
 # Shell
+# Program locations ($PATH)
 # ---------
 # DE
 # WM
@@ -27,7 +29,7 @@
 # CPU
 # GPU
 # RAM
-# Boot Drive
+# 
 # ----------
 
 # Make a basic prompt as a title
