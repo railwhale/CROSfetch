@@ -1,32 +1,34 @@
 # CROSfetch
-My clone of neofetch, made for chrome os (github/dylanaraps/neofetch).  
-Mostly to learn more bash.  
+A Neofetch 
+
+Mostly to learn bash scripting .  
 
 ## Info Given:
  - Basic prompt (As a title)
- - Username
- - Google accounts on 
- - Hostname
+ - Linux Username
+ - Google accounts on Device
  - OS
+ - Channel
  - Kernel
+ - Hostname
+ - Host
  - Uptime
  - Package managers
  - Packages
  - Terminal
  - Shell
- - Your PATH ($PATH)
+ - Program Locations (Your $PATH)
  - DE
- - Theme 
  - WM
+ - Theme
  - CPU
- - GPU
- - Memory
- - Drive (Boot drive)  
+ - Memory Ammount
+ - Storage Ammount
 
 
 ## Example crosfetch:
 ```bash
-chronos@localhost
+\[\01;32m\]chronos@localhost
 ------------------
 Username: chronos
 Local Google Accounts: rail.whale, email.eg
@@ -50,7 +52,6 @@ WM: Ash
 Theme: Dark
 ------------------
 CPU: Intel(R) Celeron(R) N4100 CPU @ 1.10GHz
-GPU: 
-Ram: 
-Storage: 
+Ram: 4 GB
+Storage: 32 GB 
 ```
