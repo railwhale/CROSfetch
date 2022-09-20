@@ -28,7 +28,7 @@ Mostly to learn bash scripting .
 
 ## Example crosfetch:
 ```bash
-\[\01;32m\]chronos@localhost
+chronos@localhost
 ------------------
 Username: chronos
 Local Google Accounts: rail.whale, email.eg
