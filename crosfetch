@@ -7,10 +7,11 @@
 # Username
 # Google account usernames
 # ----------
+# OS
+# Channel
+# Kernel
 # Hostname
 # Host
-# OS
-# Kernel 
 # Uptime
 # --------
 # Package Managers
@@ -23,13 +24,11 @@
 # DE
 # WM
 # Theme
-# WM Theme
-# Icon pack
 # ---------
 # CPU
 # GPU
-# RAM
-# 
+# RAM amount
+# Storage amount
 # ----------
 
 # Make a basic prompt as a title
@@ -71,9 +70,10 @@ get_os() {
 
 # Get the cp architecture
 get_arch() {
-  
+  arch="$(uname -m)"
 
 }
+
 # Get the host device model
 get_device() {
   
@@ -97,9 +97,9 @@ packages
 # 
 get_terminal() {
    if [  ]; then               # Is it chrome, or chromium?
-      terminal="Google Chrome"
+      terminal="crosh - Google Chrome"
    else
-      terminal="Chromium"
+      terminal="crosh - Chromium"
    fi
 }
 
@@ -116,11 +116,12 @@ get_shell() {
 de=
 wm=
 theme=
-wm_theme=
-icons=
 
-
-cpu=
+# Get 
+get_cpu() {
+  cpu="$(uname -p)"
+  
+}
 gpu=
 mem=
 drive=               # Boot Drive
