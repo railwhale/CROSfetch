@@ -5,8 +5,7 @@ Mostly to learn more bash.
 ## Info Given:
  - Basic prompt (As a title)
  - Username
- - Your prompt ($PS1 variable)
- - Your PATH ($PATH)
+ - Google accounts on 
  - Hostname
  - OS
  - Kernel
@@ -15,21 +14,43 @@ Mostly to learn more bash.
  - Packages
  - Terminal
  - Shell
+ - Your PATH ($PATH)
  - DE
  - Theme 
  - WM
- - WM Theme
- - Icon pack
  - CPU
  - GPU
  - Memory
  - Drive (Boot drive)  
 
 
-## Example Notfetch:
-railwhale@github
+## Example crosfetch:
+```bash
+chronos@localhost
 ------------------
-Username: railwhale
-Host: Github
-Prompt: [8:02] railwhale@Github: ~/ \n$
-
+Username: chronos
+Local Google Accounts: rail.whale, email.eg
+------------------
+OS: chromeOS
+Update Channel: Stable
+Kernel: Linux 4.14.290-19333-g27906fd1733f
+Hostname: localhost
+Host: octopus Chrombook
+Uptime: 1 day, 4 hours, 23 minutes
+------------------
+Package Managers: Crew, Portage
+Packages: 6 (Crew), 15 (Portage)
+------------------
+Terminal: crosh - Google Chrome
+Shell: Bash 5.1.16(1)-release
+Program Locations: /usr/local/bin, /usr/bin, /bin, /opt/bin
+------------------
+DE: Chrome
+WM: Ash
+Theme: Dark
+------------------
+CPU: Intel(R) Celeron(R) N4100 CPU @ 1.10GHz
+GPU: 
+Ram: 
+Storage: 
+```
