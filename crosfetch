@@ -31,12 +31,13 @@
 # Storage amount
 # ----------
 
+
 # Make a basic prompt as a title
 get_title() {
   title_ps1="\033[01;32m$USER@$HOSTNAME \033[00m"
   
 }
-
+  
 # Get username of the current user (It should always be chronos)
 get_username() {
   username="$USER"
@@ -64,8 +65,36 @@ get_hostname() {
 
 # Get your OS, wheather it be ChromeOS, ChromeOS Flex, ChromiumOS, or some other fork
 get_os() {
-  OS="ChromeOS"
-  # I'll do this later
+  OS="$(cat /etc/os-release.d/NAME)"                                       # Get the base name from /etc/os-release.d/NAME and put it in $OS
+  if [[ $LSB_RELEASE == *"CHROME_MILESTONE="* ]]; then                     # Just to make sure that the version tracker exists
+  # Add the main version number to $OS
+    OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/CHROMEOS_RELEASE_CHROME_MILESTONE=//')"  # Remove all but the version, add it to $OS
+  fi
+  if [[ $LSB_RELEASE == *"(Official Build)"* ]]; then                      # If lsb-release says the release if official, 
+    OS="$OS (Official Build)"                                              # add it to $OS
+  fi
+  
+}
+
+# Get your update channel
+get_channel() {
+  if [[ $LSB_RELEASE == *"stable"* ]]; then
+    channel="Stable"
+    
+  elif [[ $LSB_RELEASE == *"beta"* ]]; then    
+    channel="Beta"
+  
+  elif [[ $LSB_RELEASE == *"dev"* ]]; then
+    channel="Developer"
+    
+  elif [[ $LSB_RELEASE == *"canary"* ]]; then
+    channel="Canary"
+  
+  else
+    channel="unknown"
+  
+  fi
+    
 }
 
 # Get the cp architecture
@@ -108,7 +137,7 @@ get_shell() {
   if [ -n $BASH_VERSION ]; then
      shell="Bash $BASH_VERSION"
   else
-     shell="sh/dash"
+     shell="Dash"
   fi
 
 }
