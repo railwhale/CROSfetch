@@ -1,5 +1,7 @@
-# CROSfetch
-A Neofetch I made for chromeOS  
+<p align="center"><img src="/CROSfetch-Logo.png" alt="CROSfetch logo" />
+<h1 align="center">CROSfetch</h1>
+
+A Neofetch clone I made for chromeOS  
 (But mostly to learn bash scripting)  
 
 ## Info Given:
