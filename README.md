@@ -18,7 +18,7 @@ A Neofetch clone I made for chromeOS
  - Packages
  - Terminal
  - Shell
- - Program Locations (Your $PATH)
+ - Program Locations (Your ```$PATH```)
  - DE
  - WM
  - Theme
