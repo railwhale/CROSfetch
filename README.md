@@ -34,14 +34,14 @@ chronos@localhost
 Username: chronos
 Local Google Accounts: rail.whale, email.eg
 ------------------
-OS: chromeOS
+OS: Chrome OS 106 (Official Build)
 Update Channel: Stable
 Kernel: Linux 4.14.290-19333-g27906fd1733f
 Hostname: localhost
-Host: octopus Chrombook
+Host: Chrombook octopus
 Uptime: 1 day, 4 hours, 23 minutes
 ------------------
-Package Managers: Crew, Portage
+Package Managers: Chrome, Portage
 Packages: 6 (Crew), 15 (Portage)
 ------------------
 Terminal: crosh - Google Chrome
