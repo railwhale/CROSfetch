@@ -56,3 +56,6 @@ CPU: Intel(R) Celeron(R) N4100 CPU @ 1.10GHz
 Ram: 4 GB
 Storage: 32 GB 
 ```
+
+## Man page
+ wait for v1.1
