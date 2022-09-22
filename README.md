@@ -1,7 +1,6 @@
 # CROSfetch
-A Neofetch 
-
-Mostly to learn bash scripting .  
+A Neofetch I made for chromeOS  
+(Mostly to learn bash scripting)  
 
 ## Info Given:
  - Basic prompt (As a title)
