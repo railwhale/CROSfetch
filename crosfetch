@@ -154,3 +154,11 @@ get_cpu() {
 gpu=
 mem=
 drive=               # Boot Drive
+
+
+#
+# Logos And Images
+#
+#
+
+
