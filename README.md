@@ -67,7 +67,7 @@ Storage: 32 GB
 ## CROSfetch Sources
 
 | Info | Source in Chrome OS |  
-|:---|:---:|
+|:---|:---|
 | Title | Join some pre-existing variables |
 | Linux name | The $USER variable |
 | Google accounts | For every account there is a profile .jpg in /home/chronos, so you can remove the /path/ and everything past the '@' |
