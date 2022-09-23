@@ -23,6 +23,7 @@ A Neofetch clone I made for chromeOS
  - WM
  - Theme
  - CPU
+ 
  - Memory Ammount
  - Storage Ammount
 
@@ -53,9 +54,38 @@ WM: Ash
 Theme: Dark
 ------------------
 CPU: Intel(R) Celeron(R) N4100 CPU @ 1.10GHz
+GPU
 Ram: 4 GB
 Storage: 32 GB 
 ```
 
 ## Man page
  wait for v1.1
+
+
+
+## Sources
+
+| Info | Source in Chrome OS |  
+|:---|:---:|
+| Title | Join some pre-existing variables |
+| Linux name | The $USER variable |
+| Google accounts | For every account there is a profile .jpg in /home/chronos, so you can remove the /path/ and everything past the '@' |
+| OS | Base name from /etc/lsb-release.d/NAME, add version and officialness from /etc/lsb-release |
+| Channel | Checks /etc/lsb_release for channel name |
+| Kernel | uname command |
+| Hostname | uname command |
+| Host | Find in /etc/lsb-release |
+| Uptime | uptime command |
+| Package Managers | WIP |
+| Packages | WIP |
+| Terminal | Check weather the browser is Chrome or Chromium |
+| Shell | chack for $BASH_VERSION, else shell is dash (sh) |
+| Program Locations | $PATH variable |
+| DE | Check weather the browser is Chrome or Chromium |
+| WM | Assue WM is Ash |
+| Theme | WIP |
+| CPU | uname command |
+| GPU | WIP |
+| RAM | free command |
+| Storage | WIP |
