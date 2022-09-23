@@ -104,7 +104,7 @@ get_arch() {
 }
 
 # Get the host device model
-get_device() {
+get_host() {
   
 
 }
