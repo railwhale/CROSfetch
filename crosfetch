@@ -185,9 +185,11 @@ get_drive() {
   
 }
 
+
 #
 # Logos And Images
 #
-#
 
 
+# Set the logo 
+case
