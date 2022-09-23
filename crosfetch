@@ -123,9 +123,9 @@ get_uptime() {
 package managers
 packages
 
-# 
+# Get your terminal - is it chrome, or chromium?
 get_terminal() {
-   if [  ]; then               # Is it chrome, or chromium?
+   if [ -f /opt/google/chrome/chrome ]; then           
       terminal="crosh - Google Chrome"
    else
       terminal="crosh - Chromium"
@@ -142,15 +142,32 @@ get_shell() {
 
 }
 
-de=
-wm=
-theme=
+# Get your desktop (Which is the browser)
+get_de() {
+  if [ -f /opt/google/chrome/chrome ]; then           
+      DE="Google Chrome"
+   else
+      DE="Chromium"
+   fi
+}
 
+# Assue the WM is ash. It should be.
+get_wm() {
+  WM="Ash"
+}
+
+# Get your system theme (light or dark)
+get_theme() {
+  theme=""
+  
+}
 # Get 
 get_cpu() {
   cpu="$(uname -p)"
   
 }
+
+
 gpu=
 mem=
 drive=               # Boot Drive
