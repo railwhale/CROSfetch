@@ -1,4 +1,4 @@
-<p align="center"><img src="/CROSfetch-Logo.png" alt="CROSfetch logo" />
+<p align="center"><img src="/CROSfetch_Logo.png" alt="CROSfetch logo" />
 <h1 align="center">CROSfetch</h1>
 
 A Neofetch clone I made for chromeOS  
