@@ -64,7 +64,7 @@ Storage: 32 GB
 
 
 
-## Sources
+## CROSfetch Sources
 
 | Info | Source in Chrome OS |  
 |:---|:---:|
