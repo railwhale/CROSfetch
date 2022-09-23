@@ -167,11 +167,23 @@ get_cpu() {
   
 }
 
+# Get your GPU
+get_gpu() {
+  
+  
+}
 
-gpu=
-mem=
-drive=               # Boot Drive
+# Get total and free RAM
+get_ram() {
+  RAM="$(free | )"
+  
+}
 
+# Get the size of your boot drive
+get_drive() {
+
+  
+}
 
 #
 # Logos And Images
