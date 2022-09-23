@@ -80,7 +80,7 @@ Storage: 32 GB
 | Package Managers | WIP |
 | Packages | WIP |
 | Terminal | Check weather the browser is Chrome or Chromium |
-| Shell | chack for $BASH_VERSION, else shell is dash (sh) |
+| Shell | Check for $BASH_VERSION, else shell is dash (sh) |
 | Program Locations | $PATH variable |
 | DE | Check weather the browser is Chrome or Chromium |
 | WM | Assue WM is Ash |
