@@ -64,19 +64,19 @@ Storage: 32 GB
 
 | Info | Source in Chrome OS |  
 |:---|:---|
-| Title | Join some pre-existing variables |
-| Google accounts | For every account there is a profile .jpg in /home/chronos, so you can remove the /path/ and everything past the '@' |
-| OS | Base name from /etc/lsb-release.d/NAME, add version and officialness from /etc/lsb-release |
+| Title | $USER and $HOSTNAME |
+| Google accounts | For every account there is a profile jpeg in /home/chronos, so you can remove the /path/ and everything past the '@' |
+| OS | Everything from /etc/lsb-release |
 | Channel | Checks /etc/lsb_release for channel name |
 | Kernel | uname command |
-| Host | Find in /etc/lsb-release |
+| Host | Find in from two lines in /etc/lsb-release |
 | Uptime | uptime command |
 | Package Managers | WIP |
 | Packages | WIP |
-| Terminal | Check weather the browser is Chrome or Chromium |
+| Terminal | Check weather the OS is Chrome, Chromium or something else |
 | Shell | Check for $BASH_VERSION, else shell is dash (sh) |
 | Program Locations | $PATH variable |
-| DE | Check weather the browser is Chrome or Chromium |
+| DE | Check weather the OS is Chrome OS or not |
 | WM | Assue WM is Ash |
 | Theme | WIP |
 | CPU | uname command |
