@@ -192,4 +192,5 @@ get_drive() {
 
 
 # Set the logo 
-case
+case $OS in
+  "Chrome OS")
