@@ -6,12 +6,10 @@ A Neofetch clone I made for chromeOS
 
 ## Info Given:
  - Basic prompt (As a title)
- - Linux Username
  - Google accounts on Device
  - OS
  - Channel
- - Kernel
- - Hostname
+ - Kerne1
  - Host
  - Uptime
  - Package managers
@@ -23,7 +21,7 @@ A Neofetch clone I made for chromeOS
  - WM
  - Theme
  - CPU
- 
+ - GPU
  - Memory Ammount
  - Storage Ammount
 
@@ -32,13 +30,11 @@ A Neofetch clone I made for chromeOS
 ```bash
 chronos@localhost
 ------------------
-Username: chronos
 Local Google Accounts: rail.whale, email.eg
 ------------------
 OS: Chrome OS 106 (Official Build)
 Update Channel: Stable
 Kernel: Linux 4.14.290-19333-g27906fd1733f
-Hostname: localhost
 Host: Chrombook octopus
 Uptime: 1 day, 4 hours, 23 minutes
 ------------------
@@ -69,12 +65,10 @@ Storage: 32 GB
 | Info | Source in Chrome OS |  
 |:---|:---|
 | Title | Join some pre-existing variables |
-| Linux name | The $USER variable |
 | Google accounts | For every account there is a profile .jpg in /home/chronos, so you can remove the /path/ and everything past the '@' |
 | OS | Base name from /etc/lsb-release.d/NAME, add version and officialness from /etc/lsb-release |
 | Channel | Checks /etc/lsb_release for channel name |
 | Kernel | uname command |
-| Hostname | uname command |
 | Host | Find in /etc/lsb-release |
 | Uptime | uptime command |
 | Package Managers | WIP |
