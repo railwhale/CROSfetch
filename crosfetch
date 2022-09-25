@@ -1,46 +1,40 @@
 #!/usr/bin/env bash
-# CROSfetch: My clone of neofetch, specialised for chromeOS
 
-# Structure:
-# basic prompt
-# --------------
-# Username
-# Google account usernames
-# ----------
-# OS
-# Channel
-# Kernel
-# Hostname
-# Host
-# Uptime
-# --------
-# Package Managers
-# Packages
-# ---------
-# Terminal
-# Shell
-# Program locations ($PATH)
-# ---------
-# DE
-# WM
-# Theme
-# ---------
-# CPU
-# GPU
-# RAM amount
-# Storage amount
-# ----------
+# CROSfetch: My clone of neofetch, specialised for chromeOS
+# https://github.com/railwhale/CROSfetch
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2022 Reuben Ferabend
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+
+version=0.0
+# Setup Environment for CROSfetch
+alias echo="echo -e"
 
 
 # Make a basic prompt as a title
 get_title() {
   title_ps1="\033[01;32m$USER@$HOSTNAME \033[00m"
   
-}
-  
-# Get username of the current user (It should always be chronos)
-get_username() {
-  username="$USER"
 }
 
 # Find the usernames of all logged in google accounts
@@ -58,43 +52,26 @@ get_google-accounts() {
   unset char                                           # $char is not needed anymore
 }
 
-# Get the hostname (this should always localhost)
-get_hostname() {
-  hostname="$(uname -n)"
-}
-
 # Get your OS, wheather it be ChromeOS, ChromeOS Flex, ChromiumOS, or some other fork
 get_os() {
-  OS="$(cat /etc/os-release.d/NAME)"                                       # Get the base name from /etc/os-release.d/NAME and put it in $OS
-  if [[ $LSB_RELEASE == *"CHROME_MILESTONE="* ]]; then                     # Just to make sure that the version tracker exists
+  OS="$(cat /etc/os-release | grep RELEASE_NAME | sed 's/CHROMEOS_RELEASE_NAME=//')"   # Get the base name from /etc/os-release and put it in $OS
   # Add the main version number to $OS
-    OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/CHROMEOS_RELEASE_CHROME_MILESTONE=//')"  # Remove all but the version, add it to $OS
-  fi
-  if [[ $LSB_RELEASE == *"(Official Build)"* ]]; then                      # If lsb-release says the release if official, 
-    OS="$OS (Official Build)"                                              # add it to $OS
-  fi
+  OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/CHROMEOS_RELEASE_CHROME_MILESTONE=//')"  # Remove all but the version, add it to $OS
+  case $(cat /etc/lsb-release) in
+    "Official Build") OS="$OS (Official Build)" ;;
+    "Developer Build") OS="$OS (Developer Build)" ;;
   
 }
 
 # Get your update channel
 get_channel() {
-  if [[ $LSB_RELEASE == *"stable"* ]]; then
-    channel="Stable"
-    
-  elif [[ $LSB_RELEASE == *"beta"* ]]; then    
-    channel="Beta"
-  
-  elif [[ $LSB_RELEASE == *"dev"* ]]; then
-    channel="Developer"
-    
-  elif [[ $LSB_RELEASE == *"canary"* ]]; then
-    channel="Canary"
-  
-  else
-    channel="unknown"
-  
-  fi
-    
+  channel="unknown"
+  case $LSB_RELEASE in 
+    "stable") channel="Stable" ;;
+    "beta") channel="Beta"     ;;
+    "dev") channel="Developer" ;;
+    "canary") channel="Canary" ;;
+  esac
 }
 
 # Get the cp architecture
@@ -105,7 +82,8 @@ get_arch() {
 
 # Get the host device model
 get_host() {
-  
+  if [[ -f /sys/firmware/devicetree/base/model ]]; then
+    host="$(cat /sys/firmware/devicetree/base/model)
 
 }
 
@@ -123,35 +101,43 @@ get_uptime() {
 package managers
 packages
 
-# Get your terminal - is it chrome, or chromium?
+# Get your terminal - is it Chrome, or Chromium?
 get_terminal() {
-   if [ -f /opt/google/chrome/chrome ]; then           
-      terminal="crosh - Google Chrome"
-   else
-      terminal="crosh - Chromium"
-   fi
+   case $OS in           
+     "Chrome OS")
+       terminal="crosh - Google Chrome"
+     *)
+       terminal="crosh - Chromium"
+   esac
 }
 
 # Get the current shell
 get_shell() {
   if [ -n $BASH_VERSION ]; then
      shell="Bash $BASH_VERSION"
+  elif
+     if [ -d /mnt/stateful_partition/var_overlay/db/pkg/app-shells ]; then
+       dash_ver="$(ls /mnt/stateful_partition/var_overlay/db/pkg/app-shells | grep dash | sed 's/dash-//')"
+       shell="Dash $dash_ver"
+       unset dash_ver
+     fi
   else
-     shell="Dash"
+    shell="Dash" 
   fi
 
 }
 
 # Get your desktop (Which is the browser)
 get_de() {
-  if [ -f /opt/google/chrome/chrome ]; then           
+  case $OS in
+    "Chrome OS")
       DE="Google Chrome"
-   else
+    *)
       DE="Chromium"
-   fi
+  esac
 }
 
-# Assue the WM is ash. It should be.
+# Assue the WM is Ash. It should be.
 get_wm() {
   WM="Ash"
 }
@@ -175,7 +161,13 @@ get_gpu() {
 
 # Get total and free RAM
 get_ram() {
-  RAM="$(free | )"
+  total_ram="$(free --mega)"                            # get output of free, in MEGAbytes
+  total_ram="$(echo $total_ram | sed 's/total used free shared buff\/cache available Mem: //')"   # Remove everything up to total ram
+  total_ram="$(echo $total_ram | sed 's/ .*//')"        # Remove everything after total ram
+  total_ram="$total_ram MB"
+  
+  used_ram="$(free --mega)"
+  used_ram="$()"
   
 }
 
@@ -185,12 +177,7 @@ get_drive() {
   
 }
 
-
-#
-# Logos And Images
-#
-
-
-# Set the logo 
-case $OS in
-  "Chrome OS")
+main() {
+  
+  
+}
