@@ -37,15 +37,23 @@ get_title() {
   
 }
 
+# Get a seperator the length of the title
+get_sep() {
+  for char in $title_ps1; do
+    seperate+="-"
+  done
+  
+}
+
 # Find the usernames of all logged in google accounts
 get_google-accounts() {
    for img in /home/chronos/*.jpg; do                  # For every jpeg file in /home/chonos:
      img="$(echo $img | sed 's/\/home\/chronos\///')"  # Remove the path from the name
-     while [ "$char" != "@" ]; do                      # Until the '@' symbol,
+     while [ "$char" != "@" ]; do                      # Until the "@" symbol,
        char="$(echo ${img[*]: -1})"                    # Set $char to the last character in the file name
        img="$(echo $img | sed 's/.$//')"               # Remove the last character in the file name
      done
-     g_accs=""$g_accs""$img" "                         # Add the name to 'g_accs'
+     g_accs=""$g_accs","$img""                          # Add the name to $g_accs
      char=""                                           # Set $char to anything other than "@", so the while loop will run
    done
   unset img                                            # $img is not needed anymore
@@ -83,7 +91,7 @@ get_arch() {
 # Get the host device model
 get_host() {
   if [[ -f /sys/firmware/devicetree/base/model ]]; then
-    host="$(cat /sys/firmware/devicetree/base/model)
+    host="$(cat /sys/firmware/devicetree/base/model)"
 
 }
 
