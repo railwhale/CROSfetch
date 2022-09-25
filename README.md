@@ -39,7 +39,7 @@ Host: Chrombook octopus
 Uptime: 1 day, 4 hours, 23 minutes
 ------------------
 Package Managers: Chrome, Portage
-Packages: 6 (Crew), 15 (Portage)
+Packages: 6 (Crew), 15 (emerge)
 ------------------
 Terminal: crosh - Google Chrome
 Shell: Bash 5.1.16(1)-release
