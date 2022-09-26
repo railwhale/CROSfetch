@@ -29,7 +29,7 @@ A Neofetch clone I made for chromeOS
 ## Example crosfetch:
 ```bash
 chronos@localhost
-------------------
+------------------ 
 Local Google Accounts: rail.whale, email.eg
 ------------------
 OS: Chrome OS 106 (Official Build)
@@ -65,11 +65,11 @@ Storage: 32 GB
 | Info | Source in Chrome OS |  
 |:---|:---|
 | Title | $USER and $HOSTNAME |
-| Google accounts | For every account there is a profile jpeg in /home/chronos, so you can remove the /path/ and everything past the '@' |
-| OS | Everything from /etc/lsb-release |
-| Channel | Checks /etc/lsb_release for channel name |
+| Google accounts | For every account there is a profile jpeg in /home/chronos/, so you can remove the /path/ and everything past the '@' |
+| OS | /etc/lsb-release |
+| Channel | /etc/lsb_release |
 | Kernel | uname command |
-| Host | Find in from two lines in /etc/lsb-release |
+| Host | /etc/lsb-release, sometimes /sys/devices/virtual/dmi/id, sometime /sys/firmware/devicetree/base/model |
 | Uptime | uptime command |
 | Package Managers | WIP |
 | Packages | WIP |
