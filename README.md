@@ -38,7 +38,7 @@ Kernel: Linux 4.14.290-19333-g27906fd1733f
 Host: Chrombook octopus
 Uptime: 1 day, 4 hours, 23 minutes
 ------------------
-Package Managers: Chrome, Portage
+Package Managers: Chromebrew, Portage
 Packages: 6 (Crew), 15 (emerge)
 ------------------
 Terminal: crosh - Google Chrome
@@ -50,7 +50,7 @@ WM: Ash
 Theme: Dark
 ------------------
 CPU: Intel(R) Celeron(R) N4100 CPU @ 1.10GHz
-GPU
+GPU: 
 Ram: 4 GB
 Storage: 32 GB 
 ```
