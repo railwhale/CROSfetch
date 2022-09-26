@@ -46,37 +46,32 @@ get_sep() {
 }
 
 # Find the usernames of all logged in google accounts
-get_google-accounts() {
+get_google_accounts() {
    for img in /home/chronos/*.jpg; do                  # For every jpeg file in /home/chonos:
-     img="$(echo $img | sed 's/\/home\/chronos\///')"  # Remove the path from the name
-     while [ "$char" != "@" ]; do                      # Until the "@" symbol,
-       char="$(echo ${img[*]: -1})"                    # Set $char to the last character in the file name
-       img="$(echo $img | sed 's/.$//')"               # Remove the last character in the file name
-     done
-     g_accs=""$g_accs","$img""                          # Add the name to $g_accs
-     char=""                                           # Set $char to anything other than "@", so the while loop will run
+     img="$(echo $img | sed 's/*os\///')"              # Remove the path from the name (everything before 'os/')
+     img="$(echo $img | sed 's/@*//')"                 # Remove the "@" and everything past it
+     g_accs=""$g_accs","$img""                         # Add the name to $g_accs
    done
   unset img                                            # $img is not needed anymore
-  unset char                                           # $char is not needed anymore
 }
 
 # Get your OS, wheather it be ChromeOS, ChromeOS Flex, ChromiumOS, or some other fork
 get_os() {
-  OS="$(cat /etc/os-release | grep RELEASE_NAME | sed 's/CHROMEOS_RELEASE_NAME=//')"   # Get the base name from /etc/os-release and put it in $OS
+  OS="$(cat /etc/os-release | grep RELEASE_NAME | sed 's/*=//')"   # Get the base name from /etc/os-release and put it in $OS
   # Add the main version number to $OS
-  OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/CHROMEOS_RELEASE_CHROME_MILESTONE=//')"  # Remove all but the version, add it to $OS
+  OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/*=//')"  # Remove the "=" and everything before it (all but the version), add it to $OS
   case $(cat /etc/lsb-release) in
     "Official Build") OS="$OS (Official Build)" ;;
     "Developer Build") OS="$OS (Developer Build)" ;;
-  
+  esac
 }
 
 # Get your update channel
 get_channel() {
   channel="unknown"
   case $LSB_RELEASE in 
-    "stable") channel="Stable" ;;
-    "beta") channel="Beta"     ;;
+    "stable-chan") channel="Stable" ;;
+    "beta-chan") channel="Beta"     ;;
     "dev") channel="Developer" ;;
     "canary") channel="Canary" ;;
   esac
@@ -123,12 +118,11 @@ get_terminal() {
 get_shell() {
   if [ -n $BASH_VERSION ]; then
      shell="Bash $BASH_VERSION"
-  elif
-     if [ -d /mnt/stateful_partition/var_overlay/db/pkg/app-shells ]; then
-       dash_ver="$(ls /mnt/stateful_partition/var_overlay/db/pkg/app-shells | grep dash | sed 's/dash-//')"
-       shell="Dash $dash_ver"
-       unset dash_ver
-     fi
+  elif [ -d /mnt/stateful_partition/var_overlay/db/pkg/app-shells ]; then
+
+     dash_ver="$(ls /mnt/stateful_partition/var_overlay/db/pkg/app-shells | grep dash | sed 's/dash-//')"
+     shell="Dash $dash_ver"
+     unset dash_ver
   else
     shell="Dash" 
   fi
@@ -180,12 +174,30 @@ get_ram() {
 }
 
 # Get the size of your boot drive
-get_drive() {
+() {
 
   
 }
 
 main() {
-  
+  get_title
+  get_sep
+  get_google_accounts
+  get_os
+  get_channel
+  get_arch
+  get_host
+  get_kernel
+  get_uptime
+  get_packages
+  get_terminal
+  get_shell
+  get_de
+  get_wm
+  get_theme
+  get_cpu
+  get_gpu
+  get_ram
+  get_storage
   
 }
