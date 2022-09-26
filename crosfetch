@@ -48,9 +48,15 @@ seperator="on"
 # Google accounts on device
 # Weather to show the usernames of all Google accounts on the device
 # Default: "on"
+# Options: "on", "off"
 g_accounts="on"
 
-
+# Operating system
+# Weather to show your OS
+# Default: "on"
+# Options: "on", "off", "basic"
+# --os basic:
+#  OS: 
 os="on"
 
 channel="auto"
