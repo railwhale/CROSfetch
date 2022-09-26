@@ -22,8 +22,8 @@ A Neofetch clone I made for chromeOS
  - Theme
  - CPU
  - GPU
- - Memory Ammount
- - Storage Ammount
+ - Memory Amount
+ - Storage Amount
 
 
 ## Example crosfetch:
@@ -34,6 +34,7 @@ Local Google Accounts: rail.whale, email.eg
 ------------------
 OS: Chrome OS 106 (Official Build)
 Update Channel: Stable
+Architecture: x86_64
 Kernel: Linux 4.14.290-19333-g27906fd1733f
 Host: Chrombook octopus
 Uptime: 1 day, 4 hours, 23 minutes
@@ -41,7 +42,7 @@ Uptime: 1 day, 4 hours, 23 minutes
 Package Managers: Chromebrew, Portage
 Packages: 6 (Crew), 15 (emerge)
 ------------------
-Terminal: crosh - Google Chrome
+Terminal: Crosh - Google Chrome
 Shell: Bash 5.1.16(1)-release
 Program Locations: /usr/local/bin, /usr/bin, /bin, /opt/bin
 ------------------
@@ -69,7 +70,7 @@ Storage: 32 GB
 | OS | /etc/lsb-release |
 | Channel | /etc/lsb_release |
 | Kernel | uname command |
-| Host | /etc/lsb-release, sometimes /sys/devices/virtual/dmi/id, sometime /sys/firmware/devicetree/base/model |
+| Host | Sometimes /sys/devices/virtual/dmi/id, sometimes /sys/firmware/devicetree/base/model |
 | Uptime | uptime command |
 | Package Managers | WIP |
 | Packages | WIP |
