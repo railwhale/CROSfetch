@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
-# CROSfetch: My clone of neofetch, specialised for chromeOS
+# 
+# CROSfetch: My clone of neofetch, specialised for Chrome OS
 # https://github.com/railwhale/CROSfetch
 #
 # The MIT License (MIT)
@@ -25,18 +25,70 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-
 version=0.0
-# Setup Environment for CROSfetch
+
+# We do want color
 alias echo="echo -e"
 
 #
 # Default options
+# These should be configured in the config file /usr/local
 #
-do_channel="auto"
-do_arch="auto"
-do_pack-man="auto"
 
+# Title
+# Weather to show the $USER@$HOSTNAME prompt at the top
+# Default: "on"
+title="on"
+
+# Seperator
+# Weather to have a line of dashes seperating different info groups
+# Default: "on"
+seperator="on"
+
+# Google accounts on device
+# Weather to show the usernames of all Google accounts on the device
+# Default: "on"
+g_accounts="on"
+
+
+os="on"
+
+channel="auto"
+
+arch="auto"
+
+host="on"
+
+kernel="on"
+
+uptime="on"
+
+package_managers="auto"
+
+packages="on"
+
+terminal="on"
+
+shell="on"
+
+path="off"
+
+de="on"
+
+wm="on"
+
+theme="on"
+
+cpu="on"
+
+gpu="on"
+
+ram="on"
+
+disk="off"
+
+
+# Information functions
 
 # Make a basic prompt as a title
 get_title() {
@@ -170,8 +222,8 @@ get_gpu() {
 
 # Get total and free RAM
 get_ram() {
-  total_ram="$(free --mega)"                            # get output of free, in MEGAbytes
-  total_ram="$(echo $total_ram | sed 's/total used free shared buff\/cache available Mem: //')"   # Remove everything up to total ram
+  total_ram="$(free --mega)"                            # Get output of free, in megabytes
+  total_ram="$(echo $total_ram | sed 's/*Mem: //')"     # Remove everything up to total ram
   total_ram="$(echo $total_ram | sed 's/ .*//')"        # Remove everything after total ram
   total_ram="$total_ram MB"
   
@@ -181,7 +233,7 @@ get_ram() {
 }
 
 # Get the size of your boot drive
-() {
+get_disk() {
 
   
 }
@@ -199,6 +251,7 @@ main() {
   get_packages
   get_terminal
   get_shell
+  get_path
   get_de
   get_wm
   get_theme
