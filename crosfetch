@@ -30,6 +30,13 @@ version=0.0
 # Setup Environment for CROSfetch
 alias echo="echo -e"
 
+#
+# Default options
+#
+do_channel="auto"
+do_arch="auto"
+do_pack-man="auto"
+
 
 # Make a basic prompt as a title
 get_title() {
@@ -72,8 +79,8 @@ get_channel() {
   case $LSB_RELEASE in 
     "stable-chan") channel="Stable" ;;
     "beta-chan") channel="Beta"     ;;
-    "dev") channel="Developer" ;;
-    "canary") channel="Canary" ;;
+    "dev-chan") channel="Developer" ;;
+    "canary-chan") channel="Canary" ;;   # This is an ASSUMPTION, I have never been on canary channel
   esac
 }
 
