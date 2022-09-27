@@ -27,47 +27,60 @@
 
 version=0.0
 
-# We do want color
+# We want output to be evaluated (for colour)
 alias echo="echo -e"
 
 #
-# Default options
+# Default Options
 # These should be configured in the config file /usr/local/bin/crosfetch.conf
-#
+# You can edit it with crosfetch --edit-conf
+# The reason it is in /usr/local/bin is that is the only place Chrome OS will not warn you about executing long scripts
 
 # Title
 # Weather to show the $USER@$HOSTNAME prompt at the top
-# Default: "on"
+# Default: on
 title="on"
 
 # Seperator
 # Weather to have a line of dashes seperating different info groups
-# Default: "on"
-# Options: "on", "off", "title"
+# Default: on
+# Options: on, off, title
 # "title": only use the seperator to underline the title
 seperator="on"
 
 # Google accounts on device
 # Weather to show the usernames of all Google accounts on the device
-# Default: "on"
-# Options: "on", "off", "count", name"
-# "count": only display a count of all accounts, not the username
+# Default: on
+# Options: on, off, count, name
+# 'count': only display a number of accounts on device, not the usernames
 g_accounts="on"
 
 # Operating system
 # Weather to show your OS
-# Default: "on"
-# Options: "on", "off", "basic"
-# --os basic:
-#  OS: 
+# Default: on
+# Options: on, off, name, version, build
+# --os basic: <OS>
+# on: <OS> <big version> <Build>
 os="on"
 
 channel="auto"
 
+# OS Architecture
+# Weather to show the OS architecture
+# Default: auto
+# Options: on, off, auto
+# 'auto' dislay architecture with os
 arch="auto"
 
+# Host Model
 host="on"
 
+# Kernel
+# Weather to show the kernel
+# Default: on
+# Options: on, off, version, name
+# 'version'
+# 'name':
 kernel="on"
 
 uptime="on"
@@ -95,6 +108,15 @@ gpu="on"
 ram="on"
 
 disk="off"
+
+
+# Config
+# Get configuration for run
+# First the config file is sourced, then any arguments passed from the user
+get_config() {
+  case $1 in
+
+}
 
 
 # Information functions
@@ -253,6 +275,7 @@ get_disk() {
 }
 
 main() {
+  
   get_title
   get_sep
   get_google_accounts
