@@ -30,7 +30,7 @@ version=0.0
 # We want output to be evaluated (for colour)
 alias echo="echo -e"
 
-#
+
 # Default Options
 # These should be configured in the config file /usr/local/bin/crosfetch.conf
 # You can edit it with crosfetch --edit-conf
@@ -79,10 +79,15 @@ host="on"
 # Weather to show the kernel
 # Default: on
 # Options: on, off, version, name
-# 'version'
-# 'name':
+# 'version': print only the kernel version e.g; 5.10.365
+# 'name': print only the kernel e.g; Linux
 kernel="on"
 
+# Uptime
+# Weather to print system uptime
+# Default: on
+# Options: on, off, short 
+#
 uptime="on"
 
 package_managers="auto"
@@ -143,18 +148,18 @@ get_google_accounts() {
     g_accs=""$g_accs","$img""                         # Add the name to $g_accs
     g_accs_count+=1                                   # Count 1 more account
   done
-  if
-  
-  
+  if [[ $count == "yes" ]]; then
+    g_accs="${}"
+  fi
   unset g_accs_count
   unset img                                            # $img is not needed anymore
 }
 
 # Get your OS, wheather it be ChromeOS, ChromeOS Flex, ChromiumOS, or some other fork
 get_os() {
-  OS="$(cat /etc/os-release | grep RELEASE_NAME | sed 's/*=//')"   # Get the base name from /etc/os-release and put it in $OS
+  OS="$(cat /etc/os-release | grep RELEASE_NAME | sed 's/.*=//')"   # Get the base name from /etc/os-release and put it in $OS
   # Add the main version number to $OS
-  OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/*=//')"  # Remove the "=" and everything before it (all but the version), add it to $OS
+  OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/.*=//')"  # Remove the "=" and everything before it (all but the version), add it to $OS
   case $(cat /etc/lsb-release) in
     "Official Build") OS="$OS (Official Build)" ;;
     "Developer Build") OS="$OS (Developer Build)" ;;
@@ -164,10 +169,11 @@ get_os() {
 # Get your update channel
 get_channel() {
   channel="unknown"
-  case $LSB_RELEASE in 
+  lsb_chan="$(cat /etc/lsb-release | grep RELEASE_T | sed 's/*=//')"
+  case $lsb_chan in 
     "stable-chan") channel="Stable" ;;
     "beta-chan") channel="Beta"     ;;
-    "dev-chan") channel="Developer" ;;
+    "dev-channel") channel="Developer" ;;
     "canary-chan") channel="Canary" ;;   # This is an ASSUMPTION, I have never been on canary channel
   esac
 }
