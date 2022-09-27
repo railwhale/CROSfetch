@@ -32,7 +32,7 @@ alias echo="echo -e"
 
 #
 # Default options
-# These should be configured in the config file /usr/local
+# These should be configured in the config file /usr/local/bin/crosfetch.conf
 #
 
 # Title
@@ -112,11 +112,16 @@ get_sep() {
 
 # Find the usernames of all logged in google accounts
 get_google_accounts() {
-   for img in /home/chronos/*.jpg; do                  # For every jpeg file in /home/chonos:
-     img="$(echo $img | sed 's/*os\///')"              # Remove the path from the name (everything before 'os/')
-     img="$(echo $img | sed 's/@*//')"                 # Remove the "@" and everything past it
-     g_accs=""$g_accs","$img""                         # Add the name to $g_accs
-   done
+  for img in /home/chronos/*@*.jpg; do                # For every jpeg file in /home/chonos:
+    img="$(echo $img | sed 's/*os\///')"              # Remove the path from the name (everything before 'os/')
+    img="$(echo $img | sed 's/@*//')"                 # Remove the "@" and everything past it
+    g_accs=""$g_accs","$img""                         # Add the name to $g_accs
+    g_accs_count+=1                                   # Count 1 more account
+  done
+  if
+  
+  
+  unset g_accs_count
   unset img                                            # $img is not needed anymore
 }
 
