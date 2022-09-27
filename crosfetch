@@ -43,12 +43,15 @@ title="on"
 # Seperator
 # Weather to have a line of dashes seperating different info groups
 # Default: "on"
+# Options: "on", "off", "title"
+# "title": only use the seperator to underline the title
 seperator="on"
 
 # Google accounts on device
 # Weather to show the usernames of all Google accounts on the device
 # Default: "on"
-# Options: "on", "off"
+# Options: "on", "off", "count", name"
+# "count": only display a count of all accounts, not the username
 g_accounts="on"
 
 # Operating system
