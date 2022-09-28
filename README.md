@@ -96,7 +96,7 @@ Storage: 32 GB
 | -A | --mall | Mostly All |  |
 | \ | --real-all | All | Prints all line, even if they are unkow |
 | \ | --title | Title |  |
-| - |  | Google Accounts |  |
+| - | --googles | Google Accounts |  |
 | -o | --os | OS |  |
 | -a | --arch | Architecture |  |
 | -c | --channel | Channel |  |
