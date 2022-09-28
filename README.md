@@ -90,7 +90,7 @@ Storage: 32 GB
 | All | \ | --real-all | Prints all line, even if they are unkown | None |
 | Colour | -C | --color | Weather to have color output | on, off |
 | Title | \ | --title | Print the a basic prompt | on, off |
-| Google Accounts | - | --googles |  | on, off, count, names |
+| Google Accounts | - | --g_accounts |  | on, off, count, names |
 | OS | -o | --os | Print your os | on, off, name |
 | Architecture | -a | --arch |  | on, off, auto |
 | Channel | -c | --channel |  | on, off, auto |
