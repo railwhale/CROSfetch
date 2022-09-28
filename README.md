@@ -85,6 +85,7 @@ Storage: 32 GB
 | Help | \ | --help | Prints a basic help page with options and descriptions | None |
 | Not The Manual | \ | --n-man | More detailed help page | None |
 | Version | -V | --version | Prints the version | None |
+| Edit config | \ | --edit-config | Opens the config file in your prefered text editor |  |
 | Export | \ | --export | Format output in a way friendly to storing somewhere, such as a file or variable | None |
 | Mostly All | -A | --mall | Print all known information | None |
 | All | \ | --real-all | Prints all line, even if they are unkown | None |
