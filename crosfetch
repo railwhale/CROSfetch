@@ -261,17 +261,20 @@ get_uptime() {
   uptime="$(uptime -p | sed 's/^.//;s/^.//;s/^.//')"
 }
 
-package managers
-packages
+#package managers
+#packages
 
 # Get your terminal - is it Chrome, or Chromium?
 get_terminal() {
-   case $OS in           
-     "Chrome OS")
-       terminal="crosh - Google Chrome"
-     *)
-       terminal="crosh - Chromium"
-   esac
+  case $OS in           
+    "Chrome OS")
+      terminal="crosh - Google Chrome"
+    ;;
+    
+    *)
+      terminal="crosh - Chromium"
+    ;;
+  esac
 }
 
 # Get the current shell
@@ -294,8 +297,11 @@ get_de() {
   case $OS in
     "Chrome OS")
       DE="Google Chrome"
+    ;;
+    
     *)
       DE="Chromium"
+    ;;
   esac
 }
 
@@ -334,10 +340,10 @@ get_ram() {
 }
 
 # Get the size of your boot drive
-get_disk() {
-
-  
-}
+#get_disk() {
+#
+#  
+#}
 
 main() {
   get_config
