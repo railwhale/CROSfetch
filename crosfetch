@@ -34,7 +34,7 @@ alias echo="echo -e"
 # Default Options
 # These should be configured in the config file /usr/local/bin/crosfetch.conf
 # You can edit it with crosfetch --edit-conf
-# The reason it is in /usr/local/bin is that is the only place Chrome OS will not warn you about executing long scripts
+# The config file is in /usr/local/bin because that is the only place Chrome OS will not warn you about executing long scripts
 
 # Title
 # Weather to show the $USER@$HOSTNAME prompt at the top
@@ -52,7 +52,8 @@ seperator="on"
 # Weather to show the usernames of all Google accounts on the device
 # Default: on
 # Options: on, off, count, name
-# 'count': only display a number of accounts on device, not the usernames
+# 'count': Only display a number of accounts on device, not the usernames
+# 'name': Only
 g_accounts="on"
 
 # Operating system
@@ -94,63 +95,57 @@ uptime="on"
 # Weather to print package manager names
 # Default: auto
 # Options: on, off, auto 
-#
+# 'auto': print names with 'packages' line
 package_managers="auto"
 
 # Packages
 # Weather to print 
 # Default: 
-# Options: on, off, 
-#
+# Options: on, off, total
+# 'total': Print a total of all installed package across all package managers.
+# (if package managers is on auto, all package managers will be in one set of brackets)
 packages="on"
 
 # Terminal
 # Weather to print current terminal
 # Default: 
 # Options: on, off, 
-#
 terminal="on"
 
-# 
+# Shell
 # Weather to print 
 # Default: 
 # Options: on, off, 
-#
 shell="on"
 
-# 
+# Program Locations
 # Weather to print 
 # Default: 
 # Options: on, off, 
-#
 path="off"
 
-# 
+# Desktop Environment
 # Weather to print 
-# Default: 
+# Default: on
 # Options: on, off, 
-#
 de="on"
 
-# 
-# Weather to print 
+# Window Manager
+# Weather to print current window manager
 # Default: 
-# Options: on, off, 
-#
+# Options: on, off
 wm="on"
 
-# 
-# Weather to print 
-# Default: 
+# System Theme
+# Weather to print your system theme
+# Default: on
 # Options: on, off, 
-#
 theme="on"
 
-# 
-# Weather to print 
+# CPU
+# Weather to print your CPU
 # Default: 
 # Options: on, off, 
-#
 cpu="on"
 
 # 
