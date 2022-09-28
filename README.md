@@ -32,9 +32,7 @@ chronos@localhost
 ------------------ 
 Local Google Accounts: rail.whale, email.eg
 ------------------
-OS: Chrome OS 106 (Official Build)
-Update Channel: Stable
-Architecture: x86_64
+OS: Chrome OS x86_64 v106 (Official Build) Stable channel
 Kernel: Linux 4.14.290-19333-g27906fd1733f
 Host: Chrombook octopus
 Uptime: 1 day, 4 hours, 23 minutes
@@ -55,11 +53,6 @@ GPU:
 Ram: 4 GB
 Storage: 32 GB 
 ```
-
-## Man page
- wait for v1.1
-
-
 
 ## CROSfetch Sources
 
@@ -87,24 +80,25 @@ Storage: 32 GB
 
 ### Options and Flags
 
-| Short Flag | Long Flag | Option | What it does |
-|:---|:---|:---|:---|
-| \ | --help | Help | Prints a basic help page with options and descriptions |
-| \ | --n-man | Not The Manual | More detailed help page |
-| -V | --version | Version | Prints the version |
-| \ | --export | Export |  |
-| -A | --mall | Mostly All |  |
-| \ | --real-all | All | Prints all line, even if they are unkow |
-| \ | --title | Title |  |
-| - | --googles | Google Accounts |  |
-| -o | --os | OS |  |
-| -a | --arch | Architecture |  |
-| -c | --channel | Channel |  |
-| -k | --kernel | Kernel |  |
-| -h | --host | Host device |  |
-|  | --uptime | Uptime |  |
-|  |  | Package managers |  |
-|  | --packages | Packages |  |
-|  | --terminal | Terminal |  |
-|  | --shell | Shell |  |
-|  |  |  |  |
+| Option | Short Flag | Long Flag | What it does | Modes |
+|:---|:---|:---|:---|:---|
+| Help | \ | --help | Prints a basic help page with options and descriptions | None |
+| Not The Manual | \ | --n-man | More detailed help page | None |
+| Version | -V | --version | Prints the version | None |
+| Export | \ | --export | Format output in a way friendly to storing somewhere, such as a file or variable | None |
+| Mostly All | -A | --mall | Print all known information | None |
+| All | \ | --real-all | Prints all line, even if they are unkown | None |
+| Colour | -C | --color | Weather to have color output | on, off |
+| Title | \ | --title | Print the a basic prompt | on, off |
+| Google Accounts | - | --googles |  | on, off, count, names |
+| OS | -o | --os | Print your os | on, off, name |
+| Architecture | -a | --arch |  | on, off, auto |
+| Channel | -c | --channel |  | on, off, auto |
+| Kernel | -k | --kernel |  | on, off, version, name |
+| -h | --host | Host device |  | on, off |
+|  | --uptime | Uptime |  | on, off, short |
+|  | --package-men | Package managers |  | on, off, auto |
+|  | --packages | Packages |  | on, off, total |
+|  | --terminal | Terminal |  | on, off |
+|  | --shell | Shell |  | on, off, binary |
+|  |  |  |  |  |
