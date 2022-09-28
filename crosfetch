@@ -61,9 +61,14 @@ g_accounts="on"
 # Default: on
 # Options: on, off, name, version, build
 # --os basic: <OS>
-# on: <OS> <big version> <Build>
+# 'on': <OS> <maybe arch> <Big Version> <Build> <maybe channel>
 os="on"
 
+# Update Channel
+# Weather to show yourupdate channel
+# Default: auto
+# Options: on, off, auto
+# 'auto'
 channel="auto"
 
 # OS Architecture
