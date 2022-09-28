@@ -178,10 +178,11 @@ disk="off"
 # Config
 # Get configuration for run
 # First the config file is sourced, then any arguments passed from the user
-get_config() {
-  case $1 in
-
-}
+#get_config() {
+#  case $1 in
+#  *"--config"*)
+#    
+#}
 
 
 # Information functions
