@@ -90,28 +90,88 @@ kernel="on"
 #
 uptime="on"
 
+# Package Managers
+# Weather to print package manager names
+# Default: auto
+# Options: on, off, auto 
+#
 package_managers="auto"
 
+# Packages
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 packages="on"
 
+# Terminal
+# Weather to print current terminal
+# Default: 
+# Options: on, off, 
+#
 terminal="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 shell="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 path="off"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 de="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 wm="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 theme="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 cpu="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 gpu="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 ram="on"
 
+# 
+# Weather to print 
+# Default: 
+# Options: on, off, 
+#
 disk="off"
 
 
@@ -169,12 +229,11 @@ get_os() {
 # Get your update channel
 get_channel() {
   channel="unknown"
-  lsb_chan="$(cat /etc/lsb-release | grep RELEASE_T | sed 's/*=//')"
-  case $lsb_chan in 
-    "stable-chan") channel="Stable" ;;
-    "beta-chan") channel="Beta"     ;;
-    "dev-channel") channel="Developer" ;;
-    "canary-chan") channel="Canary" ;;   # This is an ASSUMPTION, I have never been on canary channel
+  case $LSB_RELEASE in 
+    *"stable-chan"*) channel="Stable" ;;
+    *"beta-chan"*) channel="Beta"     ;;
+    *"dev-channel"*) channel="Developer" ;;
+    *"canary-chan"*) channel="Canary" ;;   # This is an ASSUMPTION, I have never been on canary channel
   esac
 }
 
@@ -199,7 +258,6 @@ get_kernel() {
 # Get the system uptime by removing the 'up ' from uptime -p
 get_uptime() {
   uptime="$(uptime -p | sed 's/^.//;s/^.//;s/^.//')"
-  
 }
 
 package managers
@@ -281,7 +339,7 @@ get_disk() {
 }
 
 main() {
-  
+  get_config
   get_title
   get_sep
   get_google_accounts
