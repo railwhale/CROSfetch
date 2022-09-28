@@ -84,3 +84,27 @@ Storage: 32 GB
 | GPU | WIP |
 | RAM | free command |
 | Storage | WIP |
+
+### Options and Flags
+
+| Short Flag | Long Flag | Option | What it does |
+|:---|:---|:---|:---|
+| \ | --help | Help | Prints a basic help page with options and descriptions |
+| \ | --n-man | Not The Manual | More detailed help page |
+| -V | --version | Version | Prints the version |
+| \ | --export | Export |  |
+| -A | --mall | Mostly All |  |
+| \ | --real-all | All | Prints all line, even if they are unkow |
+| \ | --title | Title |  |
+| - |  | Google Accounts |  |
+| -o | --os | OS |  |
+| -a | --arch | Architecture |  |
+| -c | --channel | Channel |  |
+| -k | --kernel | Kernel |  |
+| -h | --host | Host device |  |
+|  | --uptime | Uptime |  |
+|  |  | Package managers |  |
+|  | --packages | Packages |  |
+|  | --terminal | Terminal |  |
+|  | --shell | Shell |  |
+|  |  |  |  |
