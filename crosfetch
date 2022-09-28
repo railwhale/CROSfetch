@@ -248,7 +248,7 @@ get_arch() {
 get_host() {
   if [[ -f /sys/firmware/devicetree/base/model ]]; then
     host="$(cat /sys/firmware/devicetree/base/model)"
-
+  fi
 }
 
 # Get the kernel name and release
