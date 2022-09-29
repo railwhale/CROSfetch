@@ -27,9 +27,6 @@
 
 version=0.0
 
-# We want output to be evaluated (for colour)
-alias echo="echo -e"
-
 
 # Default Options
 # These should be configured in the config file /usr/local/bin/crosfetch.conf
@@ -39,14 +36,14 @@ alias echo="echo -e"
 # Title
 # Weather to show the $USER@$HOSTNAME prompt at the top
 # Default: on
-#title="on"
+do_title="on"
 
-# Seperator
+# Line
 # Weather to have a line of dashes seperating different info groups
 # Default: on
 # Options: on, off, title
-# "title": only use the seperator to underline the title
-#seperator="on"
+# "title": only use the line to underline the title
+do_line="on"
 
 # Google accounts on device
 # Weather to show the usernames of all Google accounts on the device
@@ -54,7 +51,7 @@ alias echo="echo -e"
 # Options: on, off, count, name
 # 'count': Only display a number of accounts on device, not the usernames
 # 'name': Only
-#g_accounts="on"
+do_g_accounts="on"
 
 # Operating system
 # Weather to show your OS
@@ -62,46 +59,50 @@ alias echo="echo -e"
 # Options: on, off, name, version, build
 # --os basic: <OS>
 # 'on': <OS> <maybe arch> <Big Version> <Build> <maybe channel>
-#os="on"
+do_os="on"
 
 # Update Channel
 # Weather to show yourupdate channel
 # Default: auto
 # Options: on, off, auto
 # 'auto'
-#channel="auto"
+do_channel="auto"
 
 # OS Architecture
 # Weather to show the OS architecture
 # Default: auto
 # Options: on, off, auto
 # 'auto' dislay architecture with os
-#arch="auto"
+do_arch="auto"
 
 # Host Model
-#host="on"
+# Weather to print the model of the host device
+# Default: on
+# Options: on, off
+# 
+do_host="on"
 
 # Kernel
 # Weather to show the kernel
 # Default: on
 # Options: on, off, version, name
 # 'version': print only the kernel version e.g; 5.10.365
-# 'name': print only the kernel e.g; Linux
-#kernel="on"
+# 'name': print only the kernel name e.g; Linux
+do_kernel="on"
 
 # Uptime
 # Weather to print system uptime
 # Default: on
 # Options: on, off, short 
 #
-#uptime="on"
+do_uptime="on"
 
 # Package Managers
 # Weather to print package manager names
 # Default: auto
 # Options: on, off, auto 
 # 'auto': print names with 'packages' line
-#package_managers="auto"
+do_package_managers="auto"
 
 # Packages
 # Weather to print 
@@ -109,80 +110,82 @@ alias echo="echo -e"
 # Options: on, off, total
 # 'total': Print a total of all installed package across all package managers.
 # (if package managers is on auto, all package managers will be in one set of brackets)
-#packages="on"
+do_packages="on"
 
 # Terminal
 # Weather to print current terminal
 # Default: 
 # Options: on, off, 
-#terminal="on"
+do_terminal="on"
 
 # Shell
 # Weather to print 
 # Default: 
 # Options: on, off, 
-#shell="on"
+do_shell="on"
 
 # Program Locations
 # Weather to print 
 # Default: 
 # Options: on, off, 
-#path="off"
+do_path="off"
 
 # Desktop Environment
 # Weather to print 
 # Default: on
 # Options: on, off, 
-#de="on"
+do_de="on"
 
 # Window Manager
 # Weather to print current window manager
 # Default: 
 # Options: on, off
-#wm="on"
+do_wm="on"
 
 # System Theme
 # Weather to print your system theme
 # Default: on
 # Options: on, off, 
-#theme="on"
+do_theme="on"
 
 # CPU
 # Weather to print your CPU
 # Default: 
 # Options: on, off, 
-#cpu="on"
+do_cpu="on"
 
 # 
 # Weather to print 
 # Default: 
 # Options: on, off, 
 #
-#gpu="on"
+do_gpu="on"
 
 # 
 # Weather to print 
 # Default: 
 # Options: on, off, 
 #
-#ram="on"
+do_ram="on"
 
 # 
 # Weather to print 
 # Default: 
 # Options: on, off, 
 #
-#disk="off"
+do_disk="off"
 
 
 # Config
 # Get configuration for run
 # First the config file is sourced, then any arguments passed from the user
-#get_config() {
-#  case $1 in
-#  *"--config"*)
-#    
-#}
+get_config() {
+  case $1 in
+  *"--config"*)
+    . /usr/local/bin/crosfetch.conf
+  ;;
+  
+}
 
 
 # Information functions
@@ -193,8 +196,8 @@ get_title() {
   
 }
 
-# Get a seperator the length of the title
-get_sep() {
+# Get a line the length of the title
+get_line() {
   seperate="-----------------"
 }
 
@@ -344,10 +347,10 @@ get_ram() {
 #  
 #}
 
-main() {
+get_info() {
   #get_config
   get_title
-  get_sep
+  get_line
   get_google_accounts
   get_os
   get_channel
@@ -369,21 +372,32 @@ main() {
   
 }
 
-main
+print_info() {
+  echo -e $title
+  echo $line
+  echo
+}
 
-echo -e $title
-echo -e $seperate
-echo -e $g_accs
-echo -e $OS
+get_info
+
+print_info
+
+echo $line
+echo $g_accs
+echo $seperate
+echo $OS
 echo $channel
 echo $arch
 echo $kernel
 echo $uptime
+echo $seperate
 echo $terminal
 echo $shell
+echo $seperate
 echo $DE
 echo $WM
 echo $theme
+echo $seperate
 echo $CPU
 echo $RAM
 
