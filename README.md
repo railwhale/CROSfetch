@@ -29,7 +29,7 @@ A Neofetch clone built from the ground up for Chrome OS
  - Storage Amount
 
 
-## Example crosfetch:
+### Example crosfetch:
 ```bash
 chronos@localhost
 ------------------ 
@@ -53,6 +53,27 @@ Theme: Dark
 CPU: Intel(R) Celeron(R) N4100 CPU @ 1.10GHz
 GPU: 
 RAM: 3990 MB
-Storage: 32 GB 
 ```
  
+### CROSfetch Sources
+| Info |	Source in Chrome OS |
+|:-----|:----|
+| Title	|	$USER and $HOSTNAME |
+| Google accounts	|	For every account there is a profile jpeg in /home/chronos/, so you can remove the /path/ and everything past the '@' |
+| OS	|	/etc/lsb-release |
+| Channel	|	/etc/lsb_release |
+| Kernel	|	uname command |
+| Host	|	Sometimes /sys/devices/virtual/dmi/id, sometimes /sys/firmware/devicetree/base/model |
+| Uptime	|	uptime command |
+| Package |	Managers	WIP |
+| Packages	|	WIP |
+| Terminal	|	Check weather the OS is Chrome, Chromium or something else |
+| Shell	|	Check for $BASH_VERSION, else shell is dash (sh) |
+| Program |	Locations	$PATH variable |
+| DE	|	Check weather the OS is Chrome OS or not |
+| WM	|	Assue WM is Ash |
+| Theme	|	WIP |
+| CPU	|	uname command |
+| GPU	|	WIP |
+| RAM	|	free command |
+| Storage	|	WIP |
