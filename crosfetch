@@ -39,14 +39,14 @@ alias echo="echo -e"
 # Title
 # Weather to show the $USER@$HOSTNAME prompt at the top
 # Default: on
-title="on"
+#title="on"
 
 # Seperator
 # Weather to have a line of dashes seperating different info groups
 # Default: on
 # Options: on, off, title
 # "title": only use the seperator to underline the title
-seperator="on"
+#seperator="on"
 
 # Google accounts on device
 # Weather to show the usernames of all Google accounts on the device
@@ -54,7 +54,7 @@ seperator="on"
 # Options: on, off, count, name
 # 'count': Only display a number of accounts on device, not the usernames
 # 'name': Only
-g_accounts="on"
+#g_accounts="on"
 
 # Operating system
 # Weather to show your OS
@@ -62,24 +62,24 @@ g_accounts="on"
 # Options: on, off, name, version, build
 # --os basic: <OS>
 # 'on': <OS> <maybe arch> <Big Version> <Build> <maybe channel>
-os="on"
+#os="on"
 
 # Update Channel
 # Weather to show yourupdate channel
 # Default: auto
 # Options: on, off, auto
 # 'auto'
-channel="auto"
+#channel="auto"
 
 # OS Architecture
 # Weather to show the OS architecture
 # Default: auto
 # Options: on, off, auto
 # 'auto' dislay architecture with os
-arch="auto"
+#arch="auto"
 
 # Host Model
-host="on"
+#host="on"
 
 # Kernel
 # Weather to show the kernel
@@ -87,21 +87,21 @@ host="on"
 # Options: on, off, version, name
 # 'version': print only the kernel version e.g; 5.10.365
 # 'name': print only the kernel e.g; Linux
-kernel="on"
+#kernel="on"
 
 # Uptime
 # Weather to print system uptime
 # Default: on
 # Options: on, off, short 
 #
-uptime="on"
+#uptime="on"
 
 # Package Managers
 # Weather to print package manager names
 # Default: auto
 # Options: on, off, auto 
 # 'auto': print names with 'packages' line
-package_managers="auto"
+#package_managers="auto"
 
 # Packages
 # Weather to print 
@@ -109,70 +109,70 @@ package_managers="auto"
 # Options: on, off, total
 # 'total': Print a total of all installed package across all package managers.
 # (if package managers is on auto, all package managers will be in one set of brackets)
-packages="on"
+#packages="on"
 
 # Terminal
 # Weather to print current terminal
 # Default: 
 # Options: on, off, 
-terminal="on"
+#terminal="on"
 
 # Shell
 # Weather to print 
 # Default: 
 # Options: on, off, 
-shell="on"
+#shell="on"
 
 # Program Locations
 # Weather to print 
 # Default: 
 # Options: on, off, 
-path="off"
+#path="off"
 
 # Desktop Environment
 # Weather to print 
 # Default: on
 # Options: on, off, 
-de="on"
+#de="on"
 
 # Window Manager
 # Weather to print current window manager
 # Default: 
 # Options: on, off
-wm="on"
+#wm="on"
 
 # System Theme
 # Weather to print your system theme
 # Default: on
 # Options: on, off, 
-theme="on"
+#theme="on"
 
 # CPU
 # Weather to print your CPU
 # Default: 
 # Options: on, off, 
-cpu="on"
+#cpu="on"
 
 # 
 # Weather to print 
 # Default: 
 # Options: on, off, 
 #
-gpu="on"
+#gpu="on"
 
 # 
 # Weather to print 
 # Default: 
 # Options: on, off, 
 #
-ram="on"
+#ram="on"
 
 # 
 # Weather to print 
 # Default: 
 # Options: on, off, 
 #
-disk="off"
+#disk="off"
 
 
 # Config
@@ -189,41 +189,40 @@ disk="off"
 
 # Make a basic prompt as a title
 get_title() {
-  title_ps1="\033[01;32m$USER@$HOSTNAME \033[00m"
+  title="\033[01;32m$USER@$HOSTNAME \033[00m"
   
 }
 
 # Get a seperator the length of the title
 get_sep() {
-  for char in $title_ps1; do
-    seperate+="-"
-  done
-  
+  seperate="-----------------"
 }
 
 # Find the usernames of all logged in google accounts
 get_google_accounts() {
   for img in /home/chronos/*@*.jpg; do                # For every jpeg file in /home/chonos:
-    img="$(echo $img | sed 's/*os\///')"              # Remove the path from the name (everything before 'os/')
-    img="$(echo $img | sed 's/@*//')"                 # Remove the "@" and everything past it
-    g_accs=""$g_accs","$img""                         # Add the name to $g_accs
-    g_accs_count+=1                                   # Count 1 more account
+    img="$(echo $img | sed 's/.*os\///')"             # Remove the path from the name (everything before 'os/')
+    img="$(echo $img | sed 's/@.*//')"                # Remove the "@" and everything past it
+    g_accs="$img, $g_accs"                            # Add the name to $g_accs
+    g_accs_count="$(($g_accs_count+1))"               # Count 1 more account
   done
+  g_accs="$(echo $g_accs | sed 's/.$//')"
+  count="yes"
   if [[ $count == "yes" ]]; then
-    g_accs="${}"
+    g_accs="$g_accs ($g_accs_count)"
   fi
   unset g_accs_count
-  unset img                                            # $img is not needed anymore
+  unset img                                           # $img is not needed anymore
 }
 
 # Get your OS, wheather it be ChromeOS, ChromeOS Flex, ChromiumOS, or some other fork
 get_os() {
-  OS="$(cat /etc/os-release | grep RELEASE_NAME | sed 's/.*=//')"   # Get the base name from /etc/os-release and put it in $OS
+  OS="$(cat /etc/lsb-release | grep RELEASE_NAME | sed 's/.*=//')"   # Get the base name from /etc/os-release and put it in $OS
   # Add the main version number to $OS
   OS="$OS $(cat /etc/lsb-release | grep CHROME_MILESTONE | sed 's/.*=//')"  # Remove the "=" and everything before it (all but the version), add it to $OS
   case $(cat /etc/lsb-release) in
-    "Official Build") OS="$OS (Official Build)" ;;
-    "Developer Build") OS="$OS (Developer Build)" ;;
+    *"Official Build"*) OS="$OS (Official Build)" ;;
+    *"Developer Build"*) OS="$OS (Developer Build)" ;;
   esac
 }
 
@@ -267,12 +266,12 @@ get_uptime() {
 # Get your terminal - is it Chrome, or Chromium?
 get_terminal() {
   case $OS in           
-    "Chrome OS")
-      terminal="crosh - Google Chrome"
+    *"Chrome OS"*)
+      terminal="Google Chrome"
     ;;
     
     *)
-      terminal="crosh - Chromium"
+      terminal="Chromium"
     ;;
   esac
 }
@@ -295,7 +294,7 @@ get_shell() {
 # Get your desktop (Which is the browser)
 get_de() {
   case $OS in
-    "Chrome OS")
+    *"Chrome OS"*)
       DE="Google Chrome"
     ;;
     
@@ -317,25 +316,25 @@ get_theme() {
 }
 # Get 
 get_cpu() {
-  cpu="$(uname -p)"
+  CPU="$(uname -p)"
   
 }
 
 # Get your GPU
-get_gpu() {
-  
-  
-}
+#get_gpu() {
+#  
+#  
+#}
 
 # Get total and free RAM
 get_ram() {
   total_ram="$(free --mega)"                            # Get output of free, in megabytes
-  total_ram="$(echo $total_ram | sed 's/*Mem: //')"     # Remove everything up to total ram
-  total_ram="$(echo $total_ram | sed 's/ .*//')"        # Remove everything after total ram
-  total_ram="$total_ram MB"
-  
+  total_ram="$(echo $total_ram | sed 's/.*Mem: //')"     # Remove everything up to total ram
+  total_ram="$(echo $total_ram | sed 's/\ .*//')"        # Remove everything after total ram
+    
   used_ram="$(free --mega)"
   used_ram="$()"
+  RAM="$total_ram MB"
   
 }
 
@@ -346,7 +345,7 @@ get_ram() {
 #}
 
 main() {
-  get_config
+  #get_config
   get_title
   get_sep
   get_google_accounts
@@ -356,19 +355,36 @@ main() {
   get_host
   get_kernel
   get_uptime
-  get_packages
+ # get_packages
   get_terminal
   get_shell
-  get_path
+#  get_path
   get_de
   get_wm
   get_theme
   get_cpu
-  get_gpu
+ # get_gpu
   get_ram
-  get_storage
+ # get_storage
   
 }
 
 main
+
+echo -e $title
+echo -e $seperate
+echo -e $g_accs
+echo -e $OS
+echo $channel
+echo $arch
+echo $kernel
+echo $uptime
+echo $terminal
+echo $shell
+echo $DE
+echo $WM
+echo $theme
+echo $CPU
+echo $RAM
+
 exit 0
