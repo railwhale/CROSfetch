@@ -33,6 +33,22 @@ version=0.0
 # You can edit it with crosfetch --edit-conf
 # The config file is in /usr/local/bin because that is the only place Chrome OS will not warn you about executing long scripts
 
+set_color() {
+  case $LSB_RELEASE in
+    *"Chrome OS"*)
+      
+    
+}
+
+
+
+# Seperator
+# The seperator between info and value
+# e.g; Info: Value
+# e.g; Info --> Value
+# NOTE: A space is included after the seperator in the print_info() function
+seperate=":"
+
 # Title
 # Weather to show the $USER@$HOSTNAME prompt at the top
 # Default: on
