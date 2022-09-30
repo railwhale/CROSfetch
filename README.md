@@ -65,7 +65,7 @@ RAM: 3990 MB
 | Kernel	|	uname command |
 | Host	|	Sometimes /sys/devices/virtual/dmi/id, sometimes /sys/firmware/devicetree/base/model |
 | Uptime	|	uptime command |
-| Package |	Managers	WIP |
+| Package |	WIP |
 | Packages	|	WIP |
 | Terminal	|	Check weather the OS is Chrome, Chromium or something else |
 | Shell	|	Check for $BASH_VERSION, else shell is dash (sh) |
