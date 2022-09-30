@@ -1,8 +1,8 @@
 <img src="/CROSfetch_Logo.png" alt="CROSfetch logo" align="left">
 <h1 align="left">CROSfetch</h1>
-<p align="left"> <a href="./LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-blueviolet.svg" height="25px"></a>
-<p align="left"> <a href="https://github.com/railwhale/CROSfetch/releases"><img src="https://img.shields.io/badge/Version-0.0-blueviolet" height="25px"></a>
-<p align="left"> <a href=""><img src="https://img.shields.io/badge/Lines-404-blueviolet" height="25px"></a>
+<p align="left"> <href="./LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-blueviolet.svg" height="25px">
+<p align="left"> <href="https://github.com/railwhale/CROSfetch/releases"><img src="https://img.shields.io/badge/Version-0.0-blueviolet" height="25px">
+<p align="left"> <href=""><img src="https://img.shields.io/badge/Lines-404-blueviolet" height="25px">
  
 A Neofetch clone built from the ground up for Chrome OS  
 
