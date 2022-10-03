@@ -391,14 +391,11 @@ get_info() {
 print_info() {
   echo -e $title
   echo $line
-  echo
+  echo Google Accounts
 }
-
-get_info
 
 print_info
 
-echo $line
 echo $g_accs
 echo $seperate
 echo $OS
