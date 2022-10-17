@@ -4,7 +4,7 @@
 <p align="left"> <href="https://github.com/railwhale/CROSfetch/releases"><img src="https://img.shields.io/badge/Version-0.0-blueviolet" height="25px">
 <p align="left"> <href=""><img src="https://img.shields.io/badge/Lines-404-blueviolet" height="25px">
  
-A Neofetch clone built from the ground up for Chrome OS  
+A Neofetch-like tool built from the ground up for Chrome OS  
 
  
 ## Info Given:
