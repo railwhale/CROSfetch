@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 
-# CROSfetch: My clone of neofetch, specialised for Chrome OS
+# CROSfetch: My take of neofetch, specialised for Chrome OS
 # https://github.com/railwhale/CROSfetch
 #
 # The MIT License (MIT)
@@ -393,25 +393,5 @@ print_info() {
   echo $line
   echo Google Accounts
 }
-
-print_info
-
-echo $g_accs
-echo $seperate
-echo $OS
-echo $channel
-echo $arch
-echo $kernel
-echo $uptime
-echo $seperate
-echo $terminal
-echo $shell
-echo $seperate
-echo $DE
-echo $WM
-echo $theme
-echo $seperate
-echo $CPU
-echo $RAM
 
 exit 0
