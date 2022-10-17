@@ -1,4 +1,12 @@
 # The output of [crosfetch --help]
 Usage: crosfetch --[option] [value] --[option] [value]...
 
-CROSfetch is a command-line 
+CROSfetch is a command-line system information tool
+for Chromium-based OSes. It is heavily inspired by neofetch.
+
+
+Options:
+
+Information:
+    
+    
