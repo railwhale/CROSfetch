@@ -1,11 +1,11 @@
 # NOTICE: I have moved to [Gitea](https://gitea.io) at [vern.cc](https://git.vern.cc)
 ### For more information, visit [Give up Github](https://sfconservancy.org/GiveUpGitHub/)
 
-Because of this, this repo is out of date (including the licence). View the up-to-date version at [git.vern.cc/railwhale/CROSfetch](https://git.vern.cc/railwhale/CROSfetch)
+Because of this, this repo is out of date. View the up-to-date version at [git.vern.cc/railwhale/CROSfetch](https://git.vern.cc/railwhale/CROSfetch)
 
 <img src="/CROSfetch_Logo.png" alt="CROSfetch logo" align="left">
 <h1 align="left">CROSfetch</h1>
-<p align="left"> <href="./LICENSE.md"><img src="https://img.shields.io/badge/License-Outdated-blueviolet.svg" height="25px">
+<p align="left"> <href="./LICENSE.md"><img src="https://img.shields.io/badge/License-AGPL_v3-blueviolet.svg" height="25px">
 <p align="left"> <href="https://github.com/railwhale/CROSfetch/releases"><img src="https://img.shields.io/badge/Version-0.0-blueviolet" height="25px">
 <p align="left"> <href=""><img src="https://img.shields.io/badge/Lines-404-blueviolet" height="25px">
  
